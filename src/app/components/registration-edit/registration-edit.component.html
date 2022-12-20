@@ -1,0 +1,47 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">
+      Automobilio registracija
+    </div>
+    <div class="card-body" *ngIf="registration!=null">
+      <form (ngSubmit)="onUpdateRegistration(f)" #f="ngForm">
+        <div class="mb-3">
+          <label class="form-label">Automobilio markė</label>
+          <input type="text" class="form-control" [ngClass]="(!kidName.valid && kidName.touched)?'is-invalid':''"  name="kidName" ngModel required minlength="2" maxlength="16" #kidName="ngModel" [(ngModel)]="registration.kidName">
+          <div class="invalid-feedback"  > Privalote nurodyti automobilio markę, tekstas turi būti ne ilgesnis nei 16 simbolių ir ne trumpesnis nei 2 simboliai</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Automobilio modelis</label>
+          <input type="text" class="form-control" name="kidLastName" [ngClass]="(!kidLastName.valid && kidLastName.touched)?'is-invalid':''" ngModel required minlength="2" maxlength="32" #kidLastName="ngModel" [(ngModel)]="registration.kidLastName">
+          <div class="invalid-feedback"  > Privalote nurodyti automobilio modelį, tekstas turi būti ne ilgesnis nei 32 simboliai ir ne trumpesnis nei 2 simboliai</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Gamybos metai</label>
+          <input type="number" class="form-control" name="kidAges" [ngClass]="(!kidAges.valid && kidAges.touched)?'is-invalid':''" ngModel required kidAges #kidAges="ngModel" [(ngModel)]="registration.kidAges">
+          <div class="invalid-feedback"  > Privalote nurodyti automobilio gamybos metus, metai turi būti nuo 1900 iki 2022</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Registracijos numeris</label>
+          <input type="text" class="form-control" name="email" [ngClass]="(!email.valid && email.touched)?'is-invalid':''" ngModel required minlength="6" maxlength="6" #email="ngModel" [(ngModel)]="registration.email">
+          <div class="invalid-feedback"  > Registracijos numberis privalo būti sudarytas iš trijų raidžių ir trijų skaičių</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Tel. numeris</label>
+          <input type="text" class="form-control" name="phone" [ngClass]="(!phoneNumber.valid && phoneNumber.touched)?'is-invalid':''" ngModel required maxlength="16" #phoneNumber="ngModel" [(ngModel)]="registration.phone">
+          <div class="invalid-feedback"  > Privalote nurodyti telefono numberį, jo ilgis turi būti ne dididesnis nei 16 simbolių</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Tel. numeris</label>
+          <input type="text" class="form-control" name="kidClass" [ngClass]="(!kidClass.valid && kidClass.touched)?'is-invalid':''" ngModel required maxlength="16" #kidClass="ngModel" [(ngModel)]="registration.kidClass">
+          <div class="invalid-feedback"  > Privalote nurodyti telefono numberį, jo ilgis turi būti ne dididesnis nei 16 simbolių</div>
+        </div>
+        <div>
+          <button type="button" class="btn btn-info ">Išvalyti formą</button>
+          <button class="btn btn-success float-end" [disabled]="!f.valid" >Atnaujinti</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

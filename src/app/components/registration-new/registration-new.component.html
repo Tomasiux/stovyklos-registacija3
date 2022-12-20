@@ -1,0 +1,46 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">
+      Registracija į vasaros gamtininkų stovyklą.
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="onAddNewRegistration(f)" #f="ngForm">
+        <div class="mb-3">
+          <label class="form-label">Vaiko vardas</label>
+          <input type="text" class="form-control" [ngClass]="(!kidName.valid && kidName.touched)?'is-invalid':''"  name="kidName" ngModel required minlength="3" maxlength="15" #kidName="ngModel">
+          <div class="invalid-feedback"  > Privalote įvesti tinkamą vardą, kuris sudarytu min 3 raides max 15 raidžių</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Vaiko pavarde</label>
+          <input type="text" class="form-control" name="kidLastName" [ngClass]="(!kidLastName.valid && kidLastName.touched)?'is-invalid':''" ngModel required minlength="2" maxlength="32" #kidLastName="ngModel">
+          <div class="invalid-feedback"  > Privalote įvesti tinkamą pavardę, kuris sudarytu min 3 raides max 15 raidžių</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Vaiko gimimo metai</label>
+          <input type="number" class="form-control" name="kidAges" [ngClass]="(!kidAges.valid && kidAges.touched)?'is-invalid':''" ngModel required kidAges #kidAges="ngModel">
+          <div class="invalid-feedback"  > Privalote nurodyti tinkamus vaiko gimimo metus, turi būti ne didesnis ne dabartiniai metai -5 metai</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">El paštas</label>
+          <input type="email" class="form-control" name="email" [ngClass]="(!email.valid && email.touched)?'is-invalid':''" ngModel required email="true" #email="ngModel">
+          <div class="invalid-feedback"  > Įveskite tinkama el paštą</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Tel. numeris</label>
+          <input type="text" class="form-control" placeholder="+37065312345" name="phone" [ngClass]="(!phoneNumber.valid && phoneNumber.touched)?'is-invalid':''" ngModel required minlength="10" maxlength="12" #phoneNumber="ngModel">
+          <div class="invalid-feedback"  > Privalote nurodyti telefono numberį, jo ilgis turi būti ne mažesnis nei 10 skaičių, ne didesnis nei 12 skaičių</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">klasė</label>
+          <input type="number" class="form-control" name="kidClass" [ngClass]="(!kidClass.valid && kidClass.touched)?'is-invalid':''" ngModel required min="5" max="12" #kidClass="ngModel">
+          <div class="invalid-feedback"  > Į stovyklą vaikai primami tik nuo 5 klasės iki 12</div>
+        </div>
+        <div>
+          <button type="button" class="btn btn-info ">Išvalyti formą</button>
+          <button class="btn btn-success float-end" [disabled]="!f.valid" >Pridėti</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
